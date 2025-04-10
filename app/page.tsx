@@ -1,103 +1,410 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@jesusserpa/components/ui/button"
+import { Card, CardContent } from "@jesusserpa/components/ui/card"
+import { Github, Linkedin, Mail, ExternalLink, Menu } from "lucide-react"
+import { motion } from "framer-motion"
+
+export default function Portfolio() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="min-h-screen bg-black text-white">
+      {/* Barra de navegación */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-orange-500/20">
+        <div className="container flex items-center justify-between h-16 px-4 md:px-6">
+          <Link href="/" className="flex items-center">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/favicon-96x96.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="h-10 w-auto"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link href="#sobre-mi" className="text-sm hover:text-orange-500 transition-colors">
+              Sobre Mí
+            </Link>
+            <Link href="#habilidades" className="text-sm hover:text-orange-500 transition-colors">
+              Skills
+            </Link>
+            <Link href="#proyectos" className="text-sm hover:text-orange-500 transition-colors">
+              Proyectos
+            </Link>
+            <Link href="#contacto" className="text-sm hover:text-orange-500 transition-colors">
+              Contacto
+            </Link>
+          </nav>
+          <Button variant="ghost" size="icon" className="md:hidden text-white hover:text-orange-500">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Abrir menú</span>
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Sección Hero */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500 rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-orange-500 rounded-full filter blur-3xl"></div>
+        </div>
+        <div className="container relative z-10 px-4 md:px-6 mt-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1
+              className="text-5xl md:text-6xl font-bold tracking-tight mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-white">Hola, soy </span>
+              <span className="text-orange-500">Jesus Serpa</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-gray-300 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Desarrollador Full Stack
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white">
+                <Link href="#proyectos">Proyectos</Link>
+              </Button>
+              <Button asChild variant="outline" className="border-orange-500 text-orange-500">
+                <Link href="#contacto">Contáctame</Link>
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección Sobre Mí */}
+      <section id="sobre-mi" className="py-20 bg-white text-black">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Sobre <span className="text-orange-500">Mí</span>
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative aspect-square max-w-md mx-auto">
+                <div className="absolute inset-0 border-2 border-orange-500 rounded-lg transform translate-x-4 translate-y-4"></div>
+                <Image
+                  src="/placeholder.svg?height=400&width=400"
+                  alt="Jesus Serpa"
+                  width={400}
+                  height={400}
+                  className="rounded-lg object-cover w-full h-full relative z-10"
+                />
+              </div>
+              <div>
+                <p className="text-gray-700 mb-6">
+                  Desarrollador Full Stack con experiencia en la creación de sitios y aplicaciones, utilizando tecnologías como NextJS, TailwindCSS, JavaScript, ReactJS, PHP, Python y Node.js. Experiencia en bases de datos relacionales y no relacionales (MySQL, MongoDB, PostgreSQL). Formación en Análisis y Desarrollo de Software, con una sólida base en pruebas manuales y automatizadas, asegurando calidad en cada etapa del desarrollo.
+                </p>
+                <p className="text-gray-700 mb-6">
+                  Habilidades en metodologías ágiles (Scrum), gestión de versiones con Git/GitHub y herramientas de gestión de proyectos como Jira. Apasionado por la tecnología y el aprendizaje continuo, con enfoque en soluciones eficientes y escalables.
+                </p>
+                <div className="flex gap-4">
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
+                  >
+                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                      <Github className="h-6 w-6" />
+                      <span className="sr-only">GitHub</span>
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
+                  >
+                    <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="h-6 w-6" />
+                      <span className="sr-only">LinkedIn</span>
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
+                  >
+                    <Link href="mailto:contacto@ejemplo.com">
+                      <Mail className="h-6 w-6" />
+                      <span className="sr-only">Email</span>
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección Habilidades */}
+      <section id="habilidades" className="py-20 bg-black">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-orange-500">Skills</span>
+            </motion.h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
+              {habilidades.map((habilidad, index) => (
+                <motion.div
+                  key={habilidad.nombre}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className="bg-white/5 border border-orange-500/20 rounded-lg p-6 text-center hover:bg-white/10 transition-colors"
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 flex items-center justify-center text-orange-500">{habilidad.icono}</div>
+                  </div>
+                  <h3 className="font-medium">{habilidad.nombre}</h3>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección Proyectos */}
+      <section id="proyectos" className="py-20 bg-white text-black">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-orange-500">Proyectos</span>
+            </motion.h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {proyectos.map((proyecto, index) => (
+                <motion.div
+                  key={proyecto.titulo}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="overflow-hidden border-orange-500/20 hover:border-orange-500/50 transition-colors">
+                    <div className="relative aspect-video">
+                      <Image
+                        src={proyecto.imagen || "/placeholder.svg"}
+                        alt={proyecto.titulo}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{proyecto.titulo}</h3>
+                      <p className="text-gray-600 mb-4">{proyecto.descripcion}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {proyecto.tecnologias.map((tech) => (
+                          <span key={tech} className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex gap-4">
+                        <Button
+                          asChild
+                          variant="ghost"
+                          size="sm"
+                          className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
+                        >
+                          <Link href={proyecto.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2" />
+                            Código
+                          </Link>
+                        </Button>
+                        <Button
+                          asChild
+                          variant="ghost"
+                          size="sm"
+                          className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
+                        >
+                          <Link href={proyecto.demo} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            Demo
+                          </Link>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección Contacto */}
+      <section id="contacto" className="py-20 bg-black">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-3xl mx-auto">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Ponte en <span className="text-orange-500">Contacto</span>
+            </motion.h2>
+            <motion.div
+              className="bg-white/5 border border-orange-500/20 rounded-lg p-6 md:p-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <form className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="nombre" className="text-sm font-medium">
+                      Nombre
+                    </label>
+                    <input
+                      id="nombre"
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      type="text"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      type="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="asunto" className="text-sm font-medium">
+                    Asunto
+                  </label>
+                  <input
+                    id="asunto"
+                    className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="mensaje" className="text-sm font-medium">
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="mensaje"
+                    className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md h-32 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    required
+                  ></textarea>
+                </div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">Enviar Mensaje</Button>
+                </motion.div>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pie de página */}
+      <footer className="py-8 bg-black border-t border-orange-500/20">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-gray-400">
+              © {new Date().getFullYear()} Jesus Serpa. Todos los derechos reservados.
+            </p>
+            <div className="flex gap-4">
+              <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-orange-500">
+                <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-orange-500">
+                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">LinkedIn</span>
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-orange-500">
+                <Link href="mailto:contacto@ejemplo.com">
+                  <Mail className="h-5 w-5" />
+                  <span className="sr-only">Email</span>
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
+
+// Datos de habilidades
+const habilidades = [
+  { nombre: "React", icono: <div className="text-2xl">⚛️</div> },
+  { nombre: "Next.js", icono: <div className="text-2xl">▲</div> },
+  { nombre: "TypeScript", icono: <div className="text-2xl">TS</div> },
+  { nombre: "Node.js", icono: <div className="text-2xl">🟢</div> },
+  { nombre: "Tailwind CSS", icono: <div className="text-2xl">🌊</div> },
+  { nombre: "MongoDB", icono: <div className="text-2xl">🍃</div> },
+  { nombre: "GraphQL", icono: <div className="text-2xl">◢</div> },
+  { nombre: "PHP", icono: <div className="text-2xl">🐘</div> },
+]
+
+// Datos de proyectos
+const proyectos = [
+  {
+    titulo: "Plataforma E-commerce",
+    descripcion: "Una tienda online completa con procesamiento de pagos y gestión de inventario.",
+    imagen: "/placeholder.svg?height=200&width=400",
+    tecnologias: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+    github: "https://github.com",
+    demo: "https://example.com",
+  },
+  {
+    titulo: "App de Gestión de Tareas",
+    descripcion:
+      "Una herramienta colaborativa de gestión de tareas con actualizaciones en tiempo real y funciones de equipo.",
+    imagen: "/placeholder.svg?height=200&width=400",
+    tecnologias: ["React", "Firebase", "Tailwind CSS"],
+    github: "https://github.com",
+    demo: "https://example.com",
+  },
+  {
+    titulo: "Panel del Clima",
+    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
+    imagen: "/placeholder.svg?height=200&width=400",
+    tecnologias: ["JavaScript", "Weather API", "Chart.js"],
+    github: "https://github.com",
+    demo: "https://example.com",
+  },
+]
+
+
