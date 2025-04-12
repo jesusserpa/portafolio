@@ -116,7 +116,7 @@ export default function Portfolio() {
                     variant="ghost"
                     className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
                   >
-                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://github.com/jesusserpa" target="_blank" rel="noopener noreferrer">
                       <Github className="h-6 w-6" />
                       <span className="sr-only">GitHub</span>
                     </Link>
@@ -126,7 +126,7 @@ export default function Portfolio() {
                     variant="ghost"
                     className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
                   >
-                    <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://www.linkedin.com/in/jesusserpa" target="_blank" rel="noopener noreferrer">
                       <Linkedin className="h-6 w-6" />
                       <span className="sr-only">LinkedIn</span>
                     </Link>
@@ -136,7 +136,7 @@ export default function Portfolio() {
                     variant="ghost"
                     className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-2"
                   >
-                    <Link href="mailto:contacto@ejemplo.com">
+                    <Link href="mailto:jesusdavidserpa@hotmail.com">
                       <Mail className="h-6 w-6" />
                       <span className="sr-only">Email</span>
                     </Link>
@@ -341,19 +341,19 @@ export default function Portfolio() {
             </p>
             <div className="flex gap-4">
               <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-orange-500">
-                <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/jesusserpa" target="_blank" rel="noopener noreferrer">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Link>
               </Button>
               <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-orange-500">
-                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.linkedin.com/in/jesusserpa" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
                 </Link>
               </Button>
               <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-orange-500">
-                <Link href="mailto:contacto@ejemplo.com">
+                <Link href="mailto:jesusdavidserpa@hotmail.com">
                   <Mail className="h-5 w-5" />
                   <span className="sr-only">Email</span>
                 </Link>
@@ -381,29 +381,53 @@ const habilidades = [
 // Datos de proyectos
 const proyectos = [
   {
-    titulo: "Plataforma E-commerce",
+    titulo: "BULLGYM Landing",
     descripcion: "Una tienda online completa con procesamiento de pagos y gestión de inventario.",
-    imagen: "/placeholder.svg?height=200&width=400",
-    tecnologias: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    imagen: "/images/projects/hanging-game.png",
+    tecnologias: ["Javascript", "Bootstrap"],
+    github: "https://github.com/jesusserpa/bullgym",
+    demo: "https://bullgym-js.vercel.app/",
   },
   {
-    titulo: "App de Gestión de Tareas",
+    titulo: "Convertidor de Temperaturas",
     descripcion:
       "Una herramienta colaborativa de gestión de tareas con actualizaciones en tiempo real y funciones de equipo.",
-    imagen: "/placeholder.svg?height=200&width=400",
-    tecnologias: ["React", "Firebase", "Tailwind CSS"],
+    imagen: "/images/projects/convert-img.png",
+    tecnologias: ["Javascript"],
+    github: "https://github.com/jesusserpa/convertidor-tiempo",
+    demo: "https://convertidor-tiempo.vercel.app/",
+  },
+  {
+    titulo: "Hanging Game",
+    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
+    imagen: "/images/projects/yardsale.png",
+    tecnologias: ["Typescript"],
+    github: "https://github.com/jesusserpa/Hanging-Game",
+    demo: "https://hanging-game.vercel.app/",
+  },
+  {
+    titulo: "Top 25 Cryptos",
+    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
+    imagen: "/images/projects/yardsale.png",
+    tecnologias: ["React", "Crypto API"],
     github: "https://github.com",
     demo: "https://example.com",
   },
   {
-    titulo: "Panel del Clima",
+    titulo: "Software de Ventas",
     descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
-    imagen: "/placeholder.svg?height=200&width=400",
-    tecnologias: ["JavaScript", "Weather API", "Chart.js"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    imagen: "/images/projects/softwareventas.png",
+    tecnologias: ["JavaScript", "Java"],
+    github: "https://github.com/jesusserpa/Software-Ventas",
+    demo: "https://github.com/jesusserpa/Software-Ventas",
+  },
+  {
+    titulo: "BlackJack Game",
+    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
+    imagen: "/images/projects/blackjack-img.png",
+    tecnologias: ["JavaScript"],
+    github: "https://github.com/jesusserpa/blackjack",
+    demo: "https://blackjack-two-delta.vercel.app/",
   },
 ]
 
