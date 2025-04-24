@@ -15,7 +15,7 @@ export default function Portfolio() {
         <div className="container flex items-center justify-between h-16 px-4 md:px-6">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/favicon-96x96.png"
+              src="/images/favicon-js.png"
               alt="Logo"
               width={40}
               height={40}
@@ -66,7 +66,8 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Desarrollador Full Stack
+              Desarrollador Full Stack <br />
+              QA tester
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -96,7 +97,7 @@ export default function Portfolio() {
               <div className="relative aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 border-2 border-orange-500 rounded-lg transform translate-x-4 translate-y-4"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/images/img.jpg?height=400&width=400"
                   alt="Jesus Serpa"
                   width={400}
                   height={400}
@@ -211,12 +212,13 @@ export default function Portfolio() {
                         src={proyecto.imagen || "/placeholder.svg"}
                         alt={proyecto.titulo}
                         fill
-                        className="object-cover"
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold mb-2">{proyecto.titulo}</h3>
-                      <p className="text-gray-600 mb-4">{proyecto.descripcion}</p>
+                      {/* <p className="text-gray-600 mb-4">{proyecto.descripcion}</p> */}
                       <div className="flex flex-wrap gap-2 mb-4">
                         {proyecto.tecnologias.map((tech) => (
                           <span key={tech} className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
@@ -381,17 +383,35 @@ const habilidades = [
 // Datos de proyectos
 const proyectos = [
   {
+    titulo: "Inmover",
+    imagen: "/images/projects/in-mover.png",
+    tecnologias: ["React", "Tailwind"],
+    github: "https://github.com/jesusserpa",
+    demo: "https://in-mover.netlify.app/",
+  },
+  {
+    titulo: "VisionPro",
+    imagen: "/images/projects/vision-pro.png",
+    tecnologias: ["React", "Tailwind"],
+    github: "https://github.com/jesusserpa",
+    demo: "https://vision-pro-js.netlify.app/",
+  },
+  {
     titulo: "BULLGYM Landing",
-    descripcion: "Una tienda online completa con procesamiento de pagos y gestión de inventario.",
-    imagen: "/images/projects/hanging-game.png",
+    imagen: "/images/projects/bullgym.png",
     tecnologias: ["Javascript", "Bootstrap"],
     github: "https://github.com/jesusserpa/bullgym",
     demo: "https://bullgym-js.vercel.app/",
   },
   {
+    titulo: "Crypto Tracker",
+    imagen: "/images/projects/crypto.png",
+    tecnologias: ["React", "Crypto API"],
+    github: "https://github.com/jesusserpa",
+    demo: "https://crypto-trackerjs.netlify.app/",
+  },
+  {
     titulo: "Convertidor de Temperaturas",
-    descripcion:
-      "Una herramienta colaborativa de gestión de tareas con actualizaciones en tiempo real y funciones de equipo.",
     imagen: "/images/projects/convert-img.png",
     tecnologias: ["Javascript"],
     github: "https://github.com/jesusserpa/convertidor-tiempo",
@@ -399,23 +419,13 @@ const proyectos = [
   },
   {
     titulo: "Hanging Game",
-    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
-    imagen: "/images/projects/yardsale.png",
+    imagen: "/images/projects/hanging-game.png",
     tecnologias: ["Typescript"],
     github: "https://github.com/jesusserpa/Hanging-Game",
     demo: "https://hanging-game.vercel.app/",
   },
   {
-    titulo: "Top 25 Cryptos",
-    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
-    imagen: "/images/projects/yardsale.png",
-    tecnologias: ["React", "Crypto API"],
-    github: "https://github.com",
-    demo: "https://example.com",
-  },
-  {
     titulo: "Software de Ventas",
-    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
     imagen: "/images/projects/softwareventas.png",
     tecnologias: ["JavaScript", "Java"],
     github: "https://github.com/jesusserpa/Software-Ventas",
@@ -423,7 +433,6 @@ const proyectos = [
   },
   {
     titulo: "BlackJack Game",
-    descripcion: "Una aplicación meteorológica con pronósticos basados en ubicación y mapas interactivos.",
     imagen: "/images/projects/blackjack-img.png",
     tecnologias: ["JavaScript"],
     github: "https://github.com/jesusserpa/blackjack",
